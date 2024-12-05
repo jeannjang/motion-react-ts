@@ -1,13 +1,14 @@
 import { GlobalStyle } from "./styles/globalStyle";
 import { ThemeProvider } from "styled-components";
 import { darkTheme } from "./styles/theme/theme";
-import Motion from "./components/Motion";
+import { RouterProvider } from "react-router-dom";
+import router from "./Router";
 
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <GlobalStyle />
-      <Motion />
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }

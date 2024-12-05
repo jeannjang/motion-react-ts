@@ -61,7 +61,7 @@ const circleVariants = {
   },
 };
 
-function Motion() {
+function Variants() {
   return (
     <Wrapper>
       <Box variants={boxVariants} initial="initial" animate="animate">
@@ -74,4 +74,4 @@ function Motion() {
   );
 }
 
-export default Motion;
+export default Variants;
