@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "motion/react";
+import { useRef } from "react";
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -9,67 +10,48 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
+const ParrentBox = styled(motion.div)`
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fbd4ff;
+  border-radius: 15px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+`;
+
 const Box = styled(motion.div)`
-  width: 300px;
-  height: 300px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  background: linear-gradient(135deg, #e09, #d0e);
+  width: 150px;
+  height: 150px;
+  background: #f158ff;
   border-radius: 15px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
 `;
 
-const Circle = styled(motion.div)`
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  place-self: center;
-  background-color: #fff;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
-`;
-
 const boxVariants = {
-  initial: {
-    opacity: 0,
-    scale: 0,
-  },
-  animate: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: "spring",
-      stiffness: 260,
-      duration: 0.5,
-      delayChildren: 0.3,
-      staggerChildren: 0.3,
-    },
-  },
-};
-
-const circleVariants = {
-  initial: {
-    opacity: 0,
-    y: 50,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 260,
-    },
-  },
+  hover: { scale: 1.5, rotateZ: 180 },
+  click: { scale: 0.5, rotateZ: -180, borderRadius: "50%" },
+  drag: { background: "#fff", transition: { duration: 1 } },
 };
 
 function Gestures() {
+  const parrentBoxRef = useRef<HTMLDivElement>(null);
   return (
     <Wrapper>
-      <Box variants={boxVariants} initial="initial" animate="animate">
-        <Circle variants={circleVariants} />
-        <Circle variants={circleVariants} />
-        <Circle variants={circleVariants} />
-        <Circle variants={circleVariants} />
-      </Box>
+      <ParrentBox ref={parrentBoxRef}>
+        <Box
+          drag
+          dragSnapToOrigin
+          dragElastic={0.5}
+          dragConstraints={parrentBoxRef}
+          variants={boxVariants}
+          whileHover="hover"
+          whileTap="click"
+          whileDrag="drag"
+        />
+      </ParrentBox>
     </Wrapper>
   );
 }
