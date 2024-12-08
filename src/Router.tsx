@@ -6,6 +6,7 @@ import MotionValue from "./components/MotionValue";
 import MotionSVG from "./components/MotionSVG";
 import AnimatePresences from "./components/AnimatePresences";
 import Slider from "./components/Slider";
+import SliderAdvanced from "./components/SliderAdvanced";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/slider",
     element: <Slider />,
+  },
+  {
+    path: "/slider-advanced",
+    element: <SliderAdvanced />,
   },
 ]);
 
