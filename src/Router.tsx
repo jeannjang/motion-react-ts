@@ -8,6 +8,7 @@ import AnimatePresences from "./components/AnimatePresences";
 import Slider from "./components/Slider";
 import SliderAdvanced from "./components/SliderAdvanced";
 import LayoutAnimation from "./components/LayoutAnimation";
+import LayoutOverlay from "./components/LayoutOverlay";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/layout-animation",
     element: <LayoutAnimation />,
+  },
+  {
+    path: "/layout-overlay",
+    element: <LayoutOverlay />,
   },
 ]);
 
