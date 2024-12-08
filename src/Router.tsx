@@ -4,6 +4,8 @@ import Variants from "./components/Variants";
 import Gestures from "./components/Gestures";
 import MotionValue from "./components/MotionValue";
 import MotionSVG from "./components/MotionSVG";
+import AnimatePresences from "./components/AnimatePresences";
+import Slider from "./components/Slider";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
   {
     path: "/motion-svg",
     element: <MotionSVG />,
+  },
+  {
+    path: "/animate-presence",
+    element: <AnimatePresences />,
+  },
+  {
+    path: "/slider",
+    element: <Slider />,
   },
 ]);
 
