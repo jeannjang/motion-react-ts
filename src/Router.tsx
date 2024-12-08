@@ -7,6 +7,7 @@ import MotionSVG from "./components/MotionSVG";
 import AnimatePresences from "./components/AnimatePresences";
 import Slider from "./components/Slider";
 import SliderAdvanced from "./components/SliderAdvanced";
+import LayoutAnimation from "./components/LayoutAnimation";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "/slider-advanced",
     element: <SliderAdvanced />,
+  },
+  {
+    path: "/layout-animation",
+    element: <LayoutAnimation />,
   },
 ]);
 
